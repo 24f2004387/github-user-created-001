@@ -1,34 +1,43 @@
-# GitHub User Info Fetcher
+# GitHub User Status Alert
 
 ## Summary
-This static web app allows users to fetch and display the account creation date of a GitHub user. By utilizing the GitHub API, it provides a simple interface built with Bootstrap, where users can input a GitHub username and optionally include a personal access token for enhanced API rate limits.
+This static web app provides an accessible way to display the status of GitHub user lookups. It utilizes an `aria-live` alert to inform users when a lookup starts, succeeds, or fails, ensuring a seamless experience for all users, including those using assistive technologies.
 
 ## Setup (Local)
+To set up the project locally, follow these steps:
+
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/github-user-info-fetcher.git
+   git clone https://github.com/24f2004387/github-user-created-001.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd github-user-info-fetcher
+   cd github-user-created-001
    ```
 3. Open `index.html` in your preferred web browser.
 
 ## Usage
-1. Enter a GitHub username in the form with `id="github-user-${seed}"`.
-2. Optionally, append `?token=YOUR_ACCESS_TOKEN` to the URL for authenticated requests.
-3. Click the submit button to fetch the account creation date, which will be displayed in the element with `id="github-created-at"`.
+Simply enter a GitHub username in the provided input field and click the lookup button. The app will display the status of the lookup in the `aria-live` alert area, updating users on the process.
 
 ## Code Explanation
-- The form is identified by `id="github-user-${seed}"`, ensuring it is correctly targeted for submission.
-- A JavaScript function fetches user data from the GitHub API endpoint `https://api.github.com/users/`.
-- The account creation date is extracted from the response and displayed in the `#github-created-at` element in the format YYYY-MM-DD UTC.
+The app uses JavaScript to handle user input and fetch data from the GitHub API. Key features include:
+
+- **`aria-live` Alert**: The alert is set to `polite`, allowing screen readers to announce updates without interrupting the user.
+- **Status Updates**: The app updates the alert based on the success or failure of the API request.
+
+Key checks include:
+```javascript
+document.querySelector("#github-status").getAttribute("aria-live") === "polite";
+document.querySelector("script").textContent.includes("github-status");
+```
 
 ## Deployment (GitHub Pages)
-1. Push your code to a GitHub repository.
-2. Navigate to the repository settings.
-3. Under the "Pages" section, select the branch you want to deploy from (usually `main`).
-4. Save the settings, and your site will be available at `https://yourusername.github.io/repository-name`.
+To deploy the app on GitHub Pages:
+
+1. Push your changes to the `main` branch of your repository.
+2. Navigate to the repository settings on GitHub.
+3. Under the "Pages" section, select the `main` branch as the source.
+4. Your app will be available at `https://24f2004387.github.io/github-user-created-001/`.
 
 ## License (MIT)
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
