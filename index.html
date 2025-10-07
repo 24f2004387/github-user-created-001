@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Status Lookup</title>
+    <title>GitHub User Lookup</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>GitHub Status Lookup</h1>
+        <h1>GitHub User Lookup</h1>
         <div id="github-status" aria-live="polite"></div>
-        <button id="lookup-btn" class="btn btn-primary">Lookup GitHub Status</button>
+        <form id="lookup-form">
+            <input type="text" id="github-username" placeholder="Enter GitHub username" required>
+            <button type="submit">Lookup</button>
+        </form>
+        <div id="github-account-age"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/highlight.js/lib/highlight.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
